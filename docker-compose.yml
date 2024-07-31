@@ -1,0 +1,26 @@
+services:
+  database:
+    container_name: database
+    image: mongo:7.0.5
+    env_file:
+      - .env
+    ports:
+      - 27017:27017
+    volumes:
+      - shiplifier-db:/data/configdb
+      - shiplifier-db:/data/db
+    restart: always
+
+  server:
+    image: shiplifier-backend:1.0.0
+    container_name: shiplifier-backend
+    build: ./
+    env_file:
+      - .env
+    ports:
+      - ${PORT}:${PORT}
+    depends_on:
+      - database
+
+volumes:
+  shiplifier-db:

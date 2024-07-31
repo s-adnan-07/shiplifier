@@ -1,0 +1,22 @@
+# Directories
+node_modules
+dist
+coverage
+test
+docker
+.git
+.github
+.vscode
+
+# Files
+*.md
+*.spec.ts
+.env
+.env.development
+.gitignore
+.prettierrc
+.dockerignore
+.eslintrc.js
+.docker-compose.yml
+Dockerfile
+hash.js
